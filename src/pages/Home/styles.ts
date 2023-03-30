@@ -12,7 +12,7 @@ export const Header = styled.View`
 align-items: center;
 display: flex;
 width: 100%;
-padding: 12px 0;
+padding: 13px 0;
 background-color:${ColorTheme.Branco};
 `;
 
@@ -25,20 +25,20 @@ export const Content = styled.View`
 align-items: center;
 margin-top: 5px;
 flex: 1;
-width: 90%;
-padding: 12px 0;
+padding: 12px 12px;
 background-color:${ColorTheme.Branco};
 flex-direction: row;
 flex-wrap: wrap;
+justify-content: space-between;
+width: 90%;
 `;
 
 export const Card = styled.TouchableOpacity`                                    
 align-items: center;
-margin-top: 12px;
-margin-right: 12px;
 display: flex;
-width: 105px;
-height: 105px;
+width: 143px;
+margin: 6px 0px 6px 0px;
+height: 115px;
 background-color:${ColorTheme.Branco2};
 align-items: center;
 justify-content: center;
@@ -46,6 +46,6 @@ justify-content: center;
 
 export const Text = styled.Text`                                    
 color: ${ColorTheme.Cinza};
-font-size: 11px;
-font-weight: lighter;
+font-size: 12px;
+font-weight: 200;
 `;

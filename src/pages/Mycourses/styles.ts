@@ -8,19 +8,6 @@ align-items: center;
 background-color: ${ColorTheme.Branco};
 `;
 
-export const Header = styled.View`                                    
-align-items: center;
-display: flex;
-width: 100%;
-padding: 12px 0;
-background-color:${ColorTheme.Branco};
-`;
-
-export const Logo = styled.Image`
-width: 130px;
-height: 36px;
-`;
-
 export const Content = styled.View`                                    
 align-items: center;
 margin-top: 5px;

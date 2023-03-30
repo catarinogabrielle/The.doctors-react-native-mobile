@@ -1,7 +1,7 @@
 import React from "react";
 
 import { FontAwesome } from '@expo/vector-icons';
-import { Container, Header, Logo, Content, Card } from './styles';
+import { Container, Content, Card } from './styles';
 
 import Colors from '../../../constants/Colors';
 const ColorTheme = Colors['Theme'];
@@ -16,12 +16,6 @@ var shadow = {
 export default function Mycourses() {
     return (
         <Container>
-            <Header style={shadow}>
-                <Logo
-                    source={require('../../assets/logo.png')}
-                />
-            </Header>
-
             <Content>
                 <Card style={shadow}>
                     <FontAwesome name="user" size={35} color={ColorTheme.Cinza} />
