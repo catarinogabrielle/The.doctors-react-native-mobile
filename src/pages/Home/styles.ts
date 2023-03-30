@@ -13,12 +13,35 @@ align-items: center;
 display: flex;
 width: 100%;
 padding: 13px 0;
+flex-direction: row;
 background-color:${ColorTheme.Branco};
+justify-content: center;
+`;
+
+export const ContentLogo = styled.View`                                    
+align-items: center;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 8px;
+position: relative;
+width: 50%;
+margin-left: 27px;
 `;
 
 export const Logo = styled.Image`
 width: 130px;
 height: 36px;
+`;
+
+export const Exit = styled.TouchableOpacity`                                    
+align-items: center;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 8px;
+position: relative;
+left: 100%;
 `;
 
 export const Content = styled.View`                                    
@@ -42,6 +65,7 @@ height: 115px;
 background-color:${ColorTheme.Branco2};
 align-items: center;
 justify-content: center;
+border-radius: 8px
 `;
 
 export const Text = styled.Text`                                    

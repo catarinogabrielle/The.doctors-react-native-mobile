@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Linking } from 'react-native';
+import { Linking, ActivityIndicator } from 'react-native';
 
 import Colors from '../../../constants/Colors';
 const ColorTheme = Colors['Theme'];
@@ -10,7 +10,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { Container, Logo, InputContainer, Input, ContainerButton, Button, ButtonText, ContainerSignUp, ButtonSignUp, TextSignUp, TextUnderline } from './styles';
 
 export default function SignIn() {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, loadingAuth } = useContext(AuthContext);
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -48,9 +48,15 @@ export default function SignIn() {
                 />
                 <ContainerButton>
                     <ButtonText>Acessar</ButtonText>
-                    <Button onPress={handleLogin}>
-                        <Feather name="arrow-right" size={20} color={ColorTheme.Branco} />
-                    </Button>
+                    {loadingAuth ? (
+                        <Button >
+                            <ActivityIndicator size={20} color={ColorTheme.Branco} />
+                        </Button>
+                    ) : (
+                        <Button onPress={handleLogin}>
+                            <Feather name="arrow-right" size={20} color={ColorTheme.Branco} />
+                        </Button>
+                    )}
                 </ContainerButton>
 
                 <ContainerSignUp>

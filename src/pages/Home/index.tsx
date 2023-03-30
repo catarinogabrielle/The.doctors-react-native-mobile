@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Linking } from 'react-native';
 
-import { FontAwesome, MaterialIcons, FontAwesome5 } from '@expo/vector-icons';
-import { Container, Header, Logo, Content, Card, Text } from './styles';
+import { FontAwesome, MaterialIcons, FontAwesome5, Ionicons } from '@expo/vector-icons';
+import { Container, Header, ContentLogo, Logo, Exit, Content, Card, Text } from './styles';
 
 import Colors from '../../../constants/Colors';
 const ColorTheme = Colors['Theme'];
+
+import { AuthContext } from '../../contexts/AuthContext';
 
 var shadow = {
     elevation: 4,
@@ -15,12 +17,19 @@ var shadow = {
 }
 
 export default function Home() {
+    const { signOut } = useContext(AuthContext);
+
     return (
         <Container>
             <Header style={shadow}>
-                <Logo
-                    source={require('../../assets/logo.png')}
-                />
+                <ContentLogo>
+                    <Logo
+                        source={require('../../assets/logo.png')}
+                    />
+                </ContentLogo>
+                <Exit onPress={signOut} >
+                    <Ionicons name="ios-exit" size={27} color={ColorTheme.Cinza} />
+                </Exit>
             </Header>
 
             <Content>
