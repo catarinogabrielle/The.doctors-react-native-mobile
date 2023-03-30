@@ -11,8 +11,8 @@ background-color: ${ColorTheme.Branco};
 
 export const Logo = styled.Image`                                    
 margin-bottom: 14px;
-width: 70%;
-height: 80px;
+width: 65%;
+height: 71px;
 `;
 
 export const InputContainer = styled.View`                                    

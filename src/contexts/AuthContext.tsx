@@ -1,4 +1,7 @@
 import React, { useState, createContext, ReactNode } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+import { api } from '../services/api';
 
 type AuthContextData = {
     user: UserProps;
@@ -11,6 +14,7 @@ type UserProps = {
     name: string;
     email: string;
     token: string;
+    type: string;
 }
 
 type AuthProviderProps = {
@@ -29,14 +33,45 @@ export function AuthProvider({ children }: AuthProviderProps) {
         id: '',
         name: '',
         email: '',
-        token: ''
+        token: '',
+        type: ''
     })
+
+    const [loadingAuth, setLoadingAuth] = useState(false);
 
     const isAuthenticated = !!user.name;
 
-    async function signIn({ email, password} : SignInProps) {
-        console.log(email)
-        console.log(password)
+    async function signIn({ email, password }: SignInProps) {
+        setLoadingAuth(true);
+
+        try {
+            const response = await api.post('/session', {
+                email,
+                password
+            })
+
+            const { id, name, token, type } = response.data
+
+            const data = {
+                ...response.data
+            }
+
+            await AsyncStorage.setItem('@thedoctors', JSON.stringify(data))
+
+            api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+
+            setUser({
+                id,
+                name,
+                email,
+                token,
+                type
+            })
+
+        } catch (error) {
+            console.log('erro ao acessar', error);
+            setLoadingAuth(false);
+        }
     }
 
     return (

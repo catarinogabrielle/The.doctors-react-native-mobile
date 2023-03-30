@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
-import { Text } from 'react-native';
+import { Linking } from 'react-native';
 
 import Colors from '../../../constants/Colors';
 const ColorTheme = Colors['Theme'];
 
-import { Feather } from '@expo/vector-icons'
+import { Feather } from '@expo/vector-icons';
 import { AuthContext } from '../../contexts/AuthContext';
 
 import { Container, Logo, InputContainer, Input, ContainerButton, Button, ButtonText, ContainerSignUp, ButtonSignUp, TextSignUp, TextUnderline } from './styles';
@@ -54,7 +54,7 @@ export default function SignIn() {
                 </ContainerButton>
 
                 <ContainerSignUp>
-                    <ButtonSignUp>
+                    <ButtonSignUp onPress={() => Linking.openURL('https://thdacademy.com/signup')}>
                         <TextSignUp>Não possui uma conta? <TextUnderline>Cadastre-se</TextUnderline></TextSignUp>
                     </ButtonSignUp>
                 </ContainerSignUp>
