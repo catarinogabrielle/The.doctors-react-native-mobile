@@ -1,10 +1,10 @@
 import React from "react";
+import { useNavigation } from '@react-navigation/native'
 
-import { FontAwesome } from '@expo/vector-icons';
-import { Container, Content, Card } from './styles';
+import { Container, Content, Card, Banner, Label, Text } from './styles';
 
-import Colors from '../../../constants/Colors';
-const ColorTheme = Colors['Theme'];
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { StackParamsList } from '../../routes/app.routes'
 
 var shadow = {
     elevation: 4,
@@ -14,15 +14,39 @@ var shadow = {
 }
 
 export default function Mycourses() {
+    const navigation = useNavigation<NativeStackNavigationProp<StackParamsList>>();
+
     return (
         <Container>
             <Content>
-                <Card style={shadow}>
-                    <FontAwesome name="user" size={35} color={ColorTheme.Cinza} />
+                <Card onPress={() => navigation.navigate('Course')} style={shadow}>
+                    <Banner source={require('../../assets/banner.jpg')} />
+                    <Label>Curso</Label>
+                    <Text numberOfLines={2}>Curso de javascript iniciante</Text>
                 </Card>
 
-                <Card style={shadow}>
-                    <FontAwesome name="user" size={35} color={ColorTheme.Cinza} />
+                <Card onPress={() => navigation.navigate('Course')} style={shadow}>
+                    <Banner source={require('../../assets/banner.jpg')} />
+                    <Label>Curso</Label>
+                    <Text numberOfLines={2}>Curso de javascript iniciante</Text>
+                </Card>
+
+                <Card onPress={() => navigation.navigate('Course')} style={shadow}>
+                    <Banner source={require('../../assets/banner.jpg')} />
+                    <Label>Curso</Label>
+                    <Text numberOfLines={2}>Curso de javascript iniciante</Text>
+                </Card>
+
+                <Card onPress={() => navigation.navigate('Course')} style={shadow}>
+                    <Banner source={require('../../assets/banner.jpg')} />
+                    <Label>Curso</Label>
+                    <Text numberOfLines={2}>Curso de javascript iniciante</Text>
+                </Card>
+
+                <Card onPress={() => navigation.navigate('Course')} style={shadow}>
+                    <Banner source={require('../../assets/banner.jpg')} />
+                    <Label>Curso</Label>
+                    <Text numberOfLines={2}>Curso de javascript iniciante</Text>
                 </Card>
             </Content>
         </Container>

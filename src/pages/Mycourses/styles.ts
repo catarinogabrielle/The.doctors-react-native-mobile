@@ -12,21 +12,44 @@ export const Content = styled.View`
 align-items: center;
 margin-top: 5px;
 flex: 1;
-width: 90%;
-padding: 12px 0;
+padding: 12px 12px;
 background-color:${ColorTheme.Branco};
 flex-direction: row;
 flex-wrap: wrap;
+justify-content: space-between;
+width: 92%;
 `;
 
-export const Card = styled.TouchableOpacity`                                    
-align-items: center;
-margin-top: 12px;
-margin-right: 12px;
+export const Card = styled.TouchableOpacity`  
 display: flex;
-width: 100%;
-height: 105px;
+width: 147px;
+margin: 6px 0px 8px 0px;
 background-color:${ColorTheme.Branco2};
-align-items: center;
-justify-content: center;
+border-radius: 8px;
+height: 173px;
+`;
+
+export const Banner = styled.Image`                                    
+width: 100%;
+height: 100px;
+object-fit: cover;
+border-top-left-radius: 8px;
+border-top-right-radius: 8px;
+margin-bottom: 10px;
+`;
+
+export const Label = styled.Text`                                    
+color: ${ColorTheme.Cinza};
+font-size: 12px;
+font-weight: 300;
+left: 6px;
+margin-bottom: 5px;
+`;
+
+export const Text = styled.Text`                                    
+color: ${ColorTheme.Preto};
+font-size: 12px;
+font-weight: 700;
+left: 6px;
+width: 95%;
 `;

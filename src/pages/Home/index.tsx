@@ -1,8 +1,12 @@
 import React, { useContext } from "react";
 import { Linking } from 'react-native';
+import { useNavigation } from '@react-navigation/native'
 
-import { FontAwesome, MaterialIcons, FontAwesome5, Ionicons } from '@expo/vector-icons';
+import { FontAwesome, MaterialIcons, FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
 import { Container, Header, ContentLogo, Logo, Exit, Content, Card, Text } from './styles';
+
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { StackParamsList } from '../../routes/app.routes'
 
 import Colors from '../../../constants/Colors';
 const ColorTheme = Colors['Theme'];
@@ -17,7 +21,9 @@ var shadow = {
 }
 
 export default function Home() {
-    const { signOut } = useContext(AuthContext);
+    const navigation = useNavigation<NativeStackNavigationProp<StackParamsList>>();
+
+    const { signOut, user } = useContext(AuthContext);
 
     return (
         <Container>
@@ -28,31 +34,32 @@ export default function Home() {
                     />
                 </ContentLogo>
                 <Exit onPress={signOut} >
-                    <Ionicons name="ios-exit" size={27} color={ColorTheme.Cinza} />
+                    <MaterialCommunityIcons name="exit-to-app" size={27} color={ColorTheme.Cinza} />
                 </Exit>
             </Header>
 
             <Content>
-                <Card style={shadow}>
+                <Card onPress={() => navigation.navigate('Mycourses')} style={shadow}>
                     <FontAwesome name="user" size={35} color={ColorTheme.Cinza} />
                     <Text>Meus Cursos</Text>
                 </Card>
 
-                <Card style={shadow}>
-                    <MaterialIcons name="video-collection" size={35} color={ColorTheme.Cinza} />
-                    <Text>Novos Cursos</Text>
-                </Card>
-
-                <Card style={shadow}>
+                <Card onPress={() => navigation.navigate('Material')} style={shadow}>
                     <FontAwesome name="book" size={35} color={ColorTheme.Cinza} />
                     <Text>Materiais</Text>
                 </Card>
 
-                <Card onPress={() => Linking.openURL('https://thdacademy.com/myclasses')} style={shadow}>
-                    <FontAwesome5 name="video" size={33} color={ColorTheme.Cinza} />
-                    <Text>Gerenciar Cursos</Text>
+                <Card onPress={() => Linking.openURL('https://thdacademy.com/courses')} style={shadow}>
+                    <MaterialIcons name="video-collection" size={35} color={ColorTheme.Cinza} />
+                    <Text>Novos Cursos</Text>
                 </Card>
 
+                {user.type == "teacher" && (
+                    <Card onPress={() => Linking.openURL('https://thdacademy.com/myclasses')} style={shadow}>
+                        <FontAwesome5 name="video" size={33} color={ColorTheme.Cinza} />
+                        <Text>Gerenciar Cursos</Text>
+                    </Card>
+                )}
                 <Card onPress={() => Linking.openURL('https://thedoctorsagencia.com.br/')} style={shadow}>
                     <MaterialIcons name="info" size={35} color={ColorTheme.Cinza} />
                     <Text>Quem somos</Text>
