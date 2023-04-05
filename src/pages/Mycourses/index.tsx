@@ -24,30 +24,6 @@ export default function Mycourses() {
                     <Label>Curso</Label>
                     <Text numberOfLines={2}>Curso de javascript iniciante</Text>
                 </Card>
-
-                <Card onPress={() => navigation.navigate('Course')} style={shadow}>
-                    <Banner source={require('../../assets/banner.jpg')} />
-                    <Label>Curso</Label>
-                    <Text numberOfLines={2}>Curso de javascript iniciante</Text>
-                </Card>
-
-                <Card onPress={() => navigation.navigate('Course')} style={shadow}>
-                    <Banner source={require('../../assets/banner.jpg')} />
-                    <Label>Curso</Label>
-                    <Text numberOfLines={2}>Curso de javascript iniciante</Text>
-                </Card>
-
-                <Card onPress={() => navigation.navigate('Course')} style={shadow}>
-                    <Banner source={require('../../assets/banner.jpg')} />
-                    <Label>Curso</Label>
-                    <Text numberOfLines={2}>Curso de javascript iniciante</Text>
-                </Card>
-
-                <Card onPress={() => navigation.navigate('Course')} style={shadow}>
-                    <Banner source={require('../../assets/banner.jpg')} />
-                    <Label>Curso</Label>
-                    <Text numberOfLines={2}>Curso de javascript iniciante</Text>
-                </Card>
             </Content>
         </Container>
     )
